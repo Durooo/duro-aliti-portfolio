@@ -6,6 +6,9 @@ export interface Project {
   url: string;
   image: string;
   theme: string;
+  year: string;
+  role: string;
+  focus: string;
 }
 export const projects: Project[] = [
   {
@@ -17,6 +20,9 @@ export const projects: Project[] = [
     url: "https://doner-king-kappa.vercel.app/",
     image: "doner-king",
     theme: "king",
+    year: "2026",
+    role: "Web Development",
+    focus: "Responsive Design · Business Website · Deployment",
   },
   {
     number: "02",
@@ -27,5 +33,8 @@ export const projects: Project[] = [
     url: "https://the-spot-five.vercel.app/",
     image: "the-spot",
     theme: "spot",
+    year: "2026",
+    role: "Web Development",
+    focus: "Responsive Design · Online Ordering · Deployment",
   },
 ];

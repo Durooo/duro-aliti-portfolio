@@ -76,17 +76,20 @@ function Hero() {
             <span>Websites that work.</span>
           </p>
           <p className="hero-description">
-            I design and build modern digital experiences for businesses and
-            ideas worth noticing.
+            I design and build complete web experiences — from interface and
+            responsive design to backend functionality, databases and
+            deployment.
           </p>
           <a className="pill-link" href="#work">
             Explore my work <span aria-hidden="true">↘</span>
           </a>
           <div className="hero-note">
             <span className="small-line" />
-            Computer Science Student
-            <br />
-            Based in North Macedonia
+            Frontend · Backend · Digital Experiences
+            <p className="availability">
+              <span aria-hidden="true" />
+              Available for freelance projects
+            </p>
           </div>
         </div>
         <figure className="portrait">
@@ -172,6 +175,20 @@ function ProjectShowcase({ project: p }: { project: Project }) {
           </a>
         </div>
       </div>
+      <dl className="project-metadata">
+        <div>
+          <dt>Year</dt>
+          <dd>{p.year}</dd>
+        </div>
+        <div>
+          <dt>Role</dt>
+          <dd>{p.role}</dd>
+        </div>
+        <div>
+          <dt>Focus</dt>
+          <dd>{p.focus}</dd>
+        </div>
+      </dl>
     </article>
   );
 }
@@ -197,6 +214,96 @@ function SelectedWork() {
     </section>
   );
 }
+function Capabilities() {
+  const capabilities = [
+    "Frontend Development",
+    "Backend Development",
+    "Responsive Web Design",
+    "UI Implementation",
+    "Database Integration",
+    "Deployment & Maintenance",
+  ];
+  return (
+    <section id="capabilities" className="section capabilities">
+      <div className="section-heading reveal">
+        <h2>Capabilities</h2>
+        <p>
+          From idea to deployment,
+          <br />I build complete web experiences.
+        </p>
+      </div>
+      <ol className="capability-list">
+        {capabilities.map((capability, index) => (
+          <li className="reveal" key={capability}>
+            <span className="row-number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{capability}</h3>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+const credentials = [
+  {
+    title: "CS50x — Introduction to Computer Science",
+    issuer: "CS50",
+    year: "2026",
+    url: "https://cs50.harvard.edu/certificates/6e18d819-2ce0-4e4e-829d-f6fde67f9474",
+  },
+  { title: "Back-End Developer", issuer: "Digital School", year: "2025" },
+  { title: "Front-End Developer", issuer: "Digital School", year: "2024" },
+  {
+    title: "Summer Code Fest — Best Front-End Development Project",
+    issuer: "Digital School",
+    year: "2024",
+  },
+  {
+    title: "National Coding Olympiad — Certificate of Recognition",
+    issuer: "Codingal",
+    year: "2024",
+  },
+];
+
+function Credentials() {
+  return (
+    <section id="credentials" className="section credentials">
+      <div className="section-heading reveal">
+        <h2>
+          Selected credentials<span className="count">(05)</span>
+        </h2>
+      </div>
+      <ol className="credential-list">
+        {credentials.map((credential, index) => (
+          <li className="credential-row reveal" key={credential.title}>
+            <span className="row-number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{credential.title}</h3>
+            <div className="credential-meta">
+              <span>{credential.issuer}</span>
+              <span className="credential-year">{credential.year}</span>
+            </div>
+            {credential.url && (
+              <a
+                className="verify-link"
+                href={credential.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Verify CS50x certificate (opens in a new tab)"
+              >
+                Verify <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 function Skills() {
   return (
     <div className="skills">
@@ -212,6 +319,7 @@ function Skills() {
           "Bootstrap",
           "PHP",
           "MySQL",
+          "WordPress",
           "Git",
           "GitHub",
         ].map((skill) => (
@@ -235,14 +343,22 @@ function About() {
       </div>
       <div className="about-body">
         <p>
-          I'm Duro Aliti, a Computer Science student and web developer based in
-          North Macedonia. I enjoy turning ideas into modern, functional
-          websites with a strong focus on clean design and user experience.
+          I'm Duro Aliti, a web developer based in North Macedonia. I build
+          modern websites from concept to deployment, working across frontend
+          development, backend functionality, databases, responsive design and
+          user experience.
         </p>
         <p>
-          I've worked on real-world projects for local businesses and continue
-          to expand my skills across modern frontend and full-stack development.
+          My work focuses on creating websites that are visually considered,
+          technically reliable and practical for real businesses. Alongside
+          client and personal projects, I'm currently studying Computer Science
+          at South East European University.
         </p>
+        <div className="education">
+          <h3>BSc Computer Science</h3>
+          <p>South East European University</p>
+          <span>2025 — Present</span>
+        </div>
         <Skills />
       </div>
     </section>
@@ -262,7 +378,7 @@ function Contact() {
           Duroalitii@gmail.com <span aria-hidden="true">↗</span>
         </a>
         <div className="contact-bottom">
-          <p>Good things start with a conversation.</p>
+          <p>Available for freelance projects and collaborations.</p>
           <div className="social-links">
             <a
               href="https://github.com/Durooo"
@@ -277,6 +393,14 @@ function Contact() {
               rel="noopener noreferrer"
             >
               LinkedIn ↗<span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a
+              href="/Abdurahman_Duro_Aliti_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View CV ↗
+              <span className="sr-only"> (PDF, opens in a new tab)</span>
             </a>
           </div>
         </div>
@@ -320,7 +444,9 @@ function App() {
       <main id="main">
         <Hero />
         <SelectedWork />
+        <Capabilities />
         <About />
+        <Credentials />
         <Contact />
       </main>
     </>

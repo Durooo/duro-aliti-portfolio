@@ -825,3 +825,232 @@ footer > a:hover {
     transform: none;
   }
 }
+/* Editorial additions: retain the existing page grid, palette and imagery. */
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  color: #60684e;
+}
+.availability > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.project-metadata {
+  display: grid;
+  grid-template-columns: 100px 1fr 2fr;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  margin: 30px 0 0;
+  padding: 22px 0 0;
+}
+.project-metadata dt {
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #65685f;
+  margin-bottom: 9px;
+}
+.project-metadata dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.capabilities,
+.credentials {
+  border-top: 1px solid var(--line);
+}
+.capability-list,
+.credential-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.capability-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8%;
+}
+.capability-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 25px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+.row-number {
+  font-size: 12px;
+  color: #6b6e64;
+  font-weight: 400;
+}
+.capability-list h3 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(20px, 2vw, 29px);
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  transition: transform 0.25s;
+}
+.capability-list li:hover h3 {
+  transform: translateX(4px);
+}
+.education {
+  padding-top: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.education h3 {
+  font-size: 13px;
+  font-weight: 550;
+}
+.education p {
+  margin: 3px 0;
+  color: #686b62;
+}
+.education > span {
+  color: #686b62;
+  font-size: 12px;
+}
+.skills h3 {
+  font-size: 11px;
+}
+.skills ul {
+  gap: 16px 25px;
+}
+.skills li {
+  font-size: 14px;
+}
+.credentials h2 {
+  font-size: clamp(36px, 4.7vw, 70px);
+}
+.credential-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 220px 75px;
+  gap: 25px;
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding: 30px 0;
+}
+.credential-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.credential-row h3 {
+  font-family: Manrope, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  max-width: 620px;
+  transition: transform 0.25s;
+}
+.credential-row:hover h3 {
+  transform: translateX(3px);
+}
+.credential-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #65685f;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.verify-link {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 44px;
+  margin: -12px 0;
+}
+.verify-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.social-links {
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  .credential-row {
+    grid-template-columns: 25px minmax(0, 1fr) 160px 65px;
+    gap: 18px;
+  }
+  .credential-row h3 {
+    font-size: 18px;
+  }
+  .credential-meta {
+    font-size: 12px;
+    gap: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .hero-note {
+    font-size: 11px;
+  }
+  .project-metadata {
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+  }
+  .project-metadata > div:last-child {
+    grid-column: 1 / -1;
+  }
+  .project-metadata dd {
+    font-size: 13px;
+  }
+  .capability-list {
+    grid-template-columns: 1fr;
+  }
+  .capability-list li {
+    padding: 25px 0;
+    gap: 23px;
+  }
+  .capability-list h3 {
+    font-size: 22px;
+  }
+  .credentials .section-heading h2 {
+    font-size: 36px;
+  }
+  .credential-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 15px 16px;
+    padding: 28px 0;
+    align-items: start;
+  }
+  .credential-row > .row-number {
+    grid-column: 1 / -1;
+  }
+  .credential-row h3 {
+    grid-column: 1 / -1;
+    font-size: 20px;
+  }
+  .credential-meta {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  .credential-year:before {
+    content: "·";
+    padding: 0 8px;
+  }
+  .verify-link {
+    grid-column: 2;
+    font-size: 13px;
+    margin: -10px 0;
+  }
+  .skills li {
+    font-size: 14px;
+  }
+  .social-links {
+    gap: 24px;
+  }
+  .social-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
