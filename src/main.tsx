@@ -199,7 +199,7 @@ function SelectedWork() {
         <div>
           <p className="eyebrow">A FEW THINGS I'VE BUILT</p>
           <h2>
-            Selected work<span className="count">(02)</span>
+            Selected work<span className="count">({String(projects.length).padStart(2, "0")})</span>
           </h2>
         </div>
         <p>
