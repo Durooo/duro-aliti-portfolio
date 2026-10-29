@@ -43,7 +43,7 @@ function Navbar() {
         className={open ? "is-open" : ""}
         aria-label="Main navigation"
       >
-        {["Work", "About", "Contact"].map((item) => (
+        {["Work", "Services", "About", "Contact"].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
@@ -59,57 +59,49 @@ function Navbar() {
 }
 function Hero() {
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" aria-labelledby="hero-title">
       <div className="hero-heading">
-        <div className="eyebrow">WEB DEVELOPER · TETOVO, NORTH MACEDONIA</div>
-        <h1>
-          DURO ALITI<span className="title-dot">.</span>
+        <div className="hero-topline">
+          <p className="eyebrow">INDEPENDENT WEB DESIGN & DEVELOPMENT</p>
+          <p className="availability">
+            <span aria-hidden="true" />
+            Available for projects
+          </p>
+        </div>
+        <h1 id="hero-title">
+          Digital experiences
+          <br />
+          built to <span className="hero-emphasis">stand out.</span>
         </h1>
       </div>
-      <div className="hero-grid">
+      <div className="hero-bottom">
+        <p className="hero-signature">
+          Good design. Thoughtful development.
+          <br />
+          <span>Made for your business.</span>
+        </p>
         <div className="hero-copy">
-          <p className="intro">
-            Thoughtful design.
-            <br />
-            Purposeful code.
-            <br />
-            <span>Websites that work.</span>
-          </p>
           <p className="hero-description">
-            I design and build complete web experiences — from interface and
-            responsive design to backend functionality, databases and
-            deployment.
+            I’m Duro, a web developer helping local and international businesses
+            turn their ideas into clear, considered websites. From the first
+            impression to the last detail.
           </p>
-          <a className="pill-link" href="#work">
-            Explore my work <span aria-hidden="true">↘</span>
-          </a>
-          <div className="hero-note">
-            <span className="small-line" />
-            Frontend · Backend · Digital Experiences
-            <p className="availability">
-              <span aria-hidden="true" />
-              Available for freelance projects
-            </p>
+          <div className="hero-actions">
+            <a className="pill-link" href="mailto:Duroalitii@gmail.com">
+              Let’s talk about your project <span aria-hidden="true">↗</span>
+            </a>
+            <a className="text-link" href="#work">
+              Explore my work <span aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
-        <figure className="portrait">
-          <img
-            src="/duro-aliti.webp"
-            alt="Duro Aliti sitting at a desk"
-            width="1122"
-            height="1402"
-            fetchPriority="high"
-          />
-          <figcaption>
-            <span>A little about the person behind the pixels.</span>
-            <span>01 / INTRO</span>
-          </figcaption>
-        </figure>
       </div>
-      <a className="scroll-link" href="#work">
-        <span>SCROLL TO DISCOVER</span>
-        <span aria-hidden="true">↓</span>
-      </a>
+      <div className="hero-footnote">
+        <span>BASED IN TETOVO · WORKING WORLDWIDE</span>
+        <a href="#work">
+          SELECTED WORK BELOW <span aria-hidden="true">↘</span>
+        </a>
+      </div>
     </section>
   );
 }
@@ -124,7 +116,7 @@ function ProjectShowcase({ project: p }: { project: Project }) {
         aria-label={`View ${p.name} live site (opens in a new tab)`}
       >
         <div className="desktop-preview">
-          <div className="browser-bar">
+          <div className="browser-bar" aria-hidden="true">
             <span className="browser-dots">
               <i />
               <i />
@@ -139,6 +131,7 @@ function ProjectShowcase({ project: p }: { project: Project }) {
             width="1440"
             height="1000"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="mobile-preview">
@@ -148,6 +141,7 @@ function ProjectShowcase({ project: p }: { project: Project }) {
             width="390"
             height="844"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <span className="preview-visit" aria-hidden="true">
@@ -194,16 +188,19 @@ function ProjectShowcase({ project: p }: { project: Project }) {
 }
 function SelectedWork() {
   return (
-    <section id="work" className="section work">
+    <section id="work" className="section work" aria-labelledby="work-title">
       <div className="section-heading reveal">
         <div>
-          <p className="eyebrow">A FEW THINGS I'VE BUILT</p>
-          <h2>
-            Selected work<span className="count">({String(projects.length).padStart(2, "0")})</span>
+          <p className="eyebrow">01 / SELECTED WORK</p>
+          <h2 id="work-title">
+            Selected work
+            <span className="count">
+              ({String(projects.length).padStart(2, "0")})
+            </span>
           </h2>
         </div>
         <p>
-          Real businesses.
+          Real businesses.{" "}
           <br />
           Thoughtfully built for the web.
         </p>
@@ -214,31 +211,60 @@ function SelectedWork() {
     </section>
   );
 }
-function Capabilities() {
-  const capabilities = [
-    "Frontend Development",
-    "Backend Development",
-    "Responsive Web Design",
-    "UI Implementation",
-    "Database Integration",
-    "Deployment & Maintenance",
+function Services() {
+  const services = [
+    {
+      name: "Business Websites",
+      description:
+        "A considered home for your business online. Introduce your services, showcase your work and make it easy for the right people to get in touch.",
+      detail: "Business presence · Project showcases · Responsive design",
+    },
+    {
+      name: "Custom Web Development",
+      description:
+        "When your website needs to do more. Frontend and backend development shaped around your business, from online ordering to database integration.",
+      detail: "React & TypeScript · PHP & MySQL · UI implementation",
+    },
+    {
+      name: "Website Improvements",
+      description:
+        "Give your existing website a clearer direction. Refine the interface, improve the mobile experience and resolve the details that get in your visitors’ way.",
+      detail:
+        "Interface refinements · Responsive fixes · Deployment & maintenance",
+    },
   ];
   return (
-    <section id="capabilities" className="section capabilities">
+    <section
+      id="services"
+      className="section services"
+      aria-labelledby="services-title"
+    >
+      <span id="capabilities" className="anchor-alias" aria-hidden="true" />
       <div className="section-heading reveal">
-        <h2>Capabilities</h2>
+        <div>
+          <p className="eyebrow">02 / HOW I CAN HELP</p>
+          <h2 id="services-title">
+            A better website.
+            <br />A stronger presence.
+          </h2>
+        </div>
         <p>
-          From idea to deployment,
-          <br />I build complete web experiences.
+          For businesses ready to take{" "}
+          <br />
+          their next step online.
         </p>
       </div>
-      <ol className="capability-list">
-        {capabilities.map((capability, index) => (
-          <li className="reveal" key={capability}>
+      <ol className="service-list">
+        {services.map((service, index) => (
+          <li className="reveal" key={service.name}>
             <span className="row-number" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3>{capability}</h3>
+            <h3>{service.name}</h3>
+            <div>
+              <p>{service.description}</p>
+              <p className="service-detail">{service.detail}</p>
+            </div>
           </li>
         ))}
       </ol>
@@ -269,11 +295,18 @@ const credentials = [
 
 function Credentials() {
   return (
-    <section id="credentials" className="section credentials">
+    <section
+      id="credentials"
+      className="section credentials"
+      aria-labelledby="credentials-title"
+    >
       <div className="section-heading reveal">
-        <h2>
-          Selected credentials<span className="count">(05)</span>
-        </h2>
+        <div>
+          <p className="eyebrow">04 / CONTINUOUS LEARNING</p>
+          <h2 id="credentials-title">
+            Selected credentials<span className="count">(05)</span>
+          </h2>
+        </div>
       </div>
       <ol className="credential-list">
         {credentials.map((credential, index) => (
@@ -331,15 +364,26 @@ function Skills() {
 }
 function About() {
   return (
-    <section id="about" className="section about reveal">
+    <section id="about" className="section about" aria-labelledby="about-title">
       <div className="about-label">
-        <p className="eyebrow">A LITTLE ABOUT ME</p>
-        <h2>
+        <p className="eyebrow">03 / THE PERSON BEHIND THE WORK</p>
+        <h2 id="about-title">
           Curious mind.
           <br />
           Careful craft.
         </h2>
         <span className="about-location">Tetovo, North Macedonia</span>
+        <figure className="portrait reveal">
+          <img
+            src="/duro-aliti.webp"
+            alt="Duro Aliti sitting at a desk"
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Duro Aliti / Independent web developer</figcaption>
+        </figure>
       </div>
       <div className="about-body">
         <p>
@@ -366,14 +410,19 @@ function About() {
 }
 function Contact() {
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" aria-labelledby="contact-title">
       <div className="contact-inner reveal">
-        <p className="eyebrow">HAVE A PROJECT IN MIND?</p>
-        <h2>
-          Let's build
+        <p className="eyebrow">05 / LET’S MAKE SOMETHING GOOD</p>
+        <h2 id="contact-title">
+          Your next chapter.
           <br />
-          something<span>.</span>
+          <span>Let’s build it.</span>
         </h2>
+        <p className="contact-description">
+          Have a new website in mind, or an existing one that needs attention?{" "}
+          <br />
+          Tell me about your business and what you’d like to create.
+        </p>
         <a className="email-link" href="mailto:Duroalitii@gmail.com">
           Duroalitii@gmail.com <span aria-hidden="true">↗</span>
         </a>
@@ -422,15 +471,16 @@ function Footer() {
 }
 function App() {
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            entry.target.classList.add("revealed");
             observer.unobserve(entry.target);
           }
         }),
-      { threshold: 0.08 },
+      { threshold: 0.05 },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -441,10 +491,10 @@ function App() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <Hero />
         <SelectedWork />
-        <Capabilities />
+        <Services />
         <About />
         <Credentials />
         <Contact />

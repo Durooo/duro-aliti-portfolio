@@ -22,7 +22,8 @@ export const projects: Project[] = [
     theme: "king",
     year: "2026",
     role: "Web Development · UI Implementation",
-    focus: "Responsive Design · Corporate Website · Multilingual Experience · Deployment",
+    focus:
+      "Responsive Design · Corporate Website · Multilingual Experience · Deployment",
   },
   {
     number: "02",
@@ -39,7 +40,7 @@ export const projects: Project[] = [
   },
   {
     number: "03",
-    name: "KuchenFaben",
+    name: "Küchenfarben",
     category: "Kitchen Design / Business Website",
     description:
       "A premium website for a kitchen business, designed to showcase completed projects through strong photography, minimal typography and an elegant visual experience.",
@@ -48,7 +49,8 @@ export const projects: Project[] = [
     theme: "spot",
     year: "2026",
     role: "Web Development · UI Implementation",
-    focus: "Responsive Design · Project Showcase · Business Website · Deployment",
+    focus:
+      "Responsive Design · Project Showcase · Business Website · Deployment",
   },
   {
     number: "04",
